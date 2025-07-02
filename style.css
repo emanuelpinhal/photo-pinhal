@@ -1,7 +1,8 @@
 body {
-  font-family: sans-serif;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
   margin: 0;
-  background: #f8f8f8;
+  padding: 0;
   color: #333;
 }
 
@@ -13,32 +14,35 @@ header {
 }
 
 nav a {
-  color: #ddd;
+  color: #fff;
   margin: 0 10px;
   text-decoration: none;
 }
 
-.portfolio {
+.login-form {
+  margin: 2rem auto;
+  max-width: 400px;
+  background: white;
   padding: 2rem;
-  text-align: center;
-}
-
-.gallery {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.gallery img {
-  width: 300px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-footer {
-  background: #111;
+.login-form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  padding: 0.7rem 1.5rem;
+  background: #333;
   color: white;
-  text-align: center;
-  padding: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #555;
 }
