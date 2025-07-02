@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Painel do Utilizador</h1>
+  </header>
+
+  <section id="dashboard">
+    <p>Bem-vindo, <span id="userEmail"></span>!</p>
+    <div id="features"></div>
+    <button onclick="logout()">Sair</button>
+  </section>
+
+  <script>
+    const user = JSON.parse(localStorage.getItem("user"));
+    const emailDisplay = document.getElementById("userEmail");
+    const features = document.getElementById("features");
+
+    if (!user) {
+      window.location.href = "login.html";
+    } else {
+      emailDisplay.textContent = user.email;
+
+      if (user.role === "fotografo") {
+        features.innerHTML = `
+          <h2>Funções de Fotógrafo</h2>
+          <ul>
+            <li>Upload de novas fotos</li>
+            <li>Gerir álbuns</li>
+            <li>Ver pedidos de clientes</li>
+          </ul>`;
+      } else {
+        features.innerHTML = `
+          <h2>Funções de Cliente</h2>
+          <ul>
+            <li>Ver álbuns privados</li>
+            <li>Agendar sessão</li>
+          </ul>`;
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem("user");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
